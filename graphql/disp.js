@@ -36,17 +36,16 @@ const QUERY = gql`
     }
   }
 }
-
   }
 `;
 
 const Disp = () => {
 
-  const { data, error } = useQuery(QUERY);
+  const { data,loading, error } = useQuery(QUERY);
 
-  //   if (loading) {
-  //     return ("....");
-  //   }
+    if (loading) {
+      return ("....");
+    }
 
   if (error) {
     console.error(error);
@@ -67,7 +66,7 @@ const Disp = () => {
         <div className="user-details mb-4">
           <h2 className="text-2xl mb-2">User Details</h2>
           <div className="header text-center mb-4">
-            <img src={user.avatarUrl} alt={user.name} className="w-24 h-24 rounded-full" />
+            <img src={user.avatarUrl} alt={user.name} className="w-24 h-24 rounded-full display-flex" />
             <h1 className="text-2xl mt-2">{user.name}</h1>
             <p className="text-gray-600 text-lg mt-2">{user.bio}</p>
           </div>

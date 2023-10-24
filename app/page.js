@@ -1,12 +1,9 @@
 'use client'
 
-// import { ApolloClient,InMemoryCache,ApolloProvider,useQuery,gql,createHttpLink } from "@apollo/client"
-
 import { ApolloClient, createHttpLink, InMemoryCache ,ApolloProvider} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Disp from './graphql/disp';
-// import {setContext} from 'react';
-
+import Disp from '../graphql/disp';
+import  '../public/logo.png';
 const Page = () => {
 
   const httpLink = createHttpLink({
@@ -32,11 +29,13 @@ const Page = () => {
     cache: new InMemoryCache()
   });
 
-
   return (
     <ApolloProvider client={client}>
-      <section >
-      <h1>nuts</h1>
+      <section className='w-full flex-center'>
+        <div>
+        <img src="logo.png" alt="nice" className='h-15 w-20'/>
+        {/* <h1>DevFuel</h1> */}
+        </div>
       <Disp />
       </section>
     </ApolloProvider>
