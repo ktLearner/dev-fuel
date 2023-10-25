@@ -3,6 +3,7 @@ Initially idea was to make it a crowd funding platform for open source project b
 
 ## video
 https://drive.google.com/drive/folders/1ABGX6hcSdmAINMsArVaua80xyBCiEj8Z?usp=sharing
+//sorry for aaaaaaa.....
 
 ## overview
 - Tried using next-js instead of just react due to server side rendering / seo optimisation ..... and yeah file based routes is much easier
