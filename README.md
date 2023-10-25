@@ -18,7 +18,7 @@ Clone the project
 ~~~
 
 
-Add a env file with a private key(name it GITHUB_PRIVATE_KEY) and yeah we r ready to go
+Add a env file with a private key(name it GITHUB_PRIVATE_KEY) 
 
 Go to the project directory  
 
