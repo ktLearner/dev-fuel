@@ -1,45 +1,18 @@
-'use client'
+import React from 'react'
+import Footer from '@/components/Footer.js'
 
-import { ApolloClient, createHttpLink, InMemoryCache ,ApolloProvider} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import Disp from '../graphql/disp';
-import  '../public/logo.png';
-const Page = () => {
 
-  const httpLink = createHttpLink({
-    uri: 'https://api.github.com/graphql',
-  });
-  
-
-  const authLink = setContext((_, { headers }) => {
-    
-    const token = "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";
-    
-    return {
-      headers: {
-        ...headers,
-        authorization: token ? `Bearer ${token}` : "",
-      }
-    }
-  });
-  
-
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
-  });
-
+const page = () => {
   return (
-    <ApolloProvider client={client}>
-      <section className='w-full flex-center'>
-        <div>
-        <img src="logo.png" alt="nice" className='h-15 w-20'/>
-        {/* <h1>DevFuel</h1> */}
-        </div>
-      <Disp />
-      </section>
-    </ApolloProvider>
+    <div>
+
+      <h2 className="text-2xl mb-2">Hello donors fell free to donate to open source !!!</h2>
+      <h2 className="text-2xl mb-2">Currently we donot support direct payments so do something but surely donate</h2>
+      <h2 className="text-2xl mb-2">Go to the search User tab </h2>
+
+      <Footer />
+    </div>
   )
 }
 
-export default Page
+export default page

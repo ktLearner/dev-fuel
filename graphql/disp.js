@@ -2,9 +2,10 @@ import { useQuery } from "@apollo/client";
 import { gql } from "@apollo/client";
 import { interpolateGreens } from 'd3-scale-chromatic';
 
+
 const QUERY = gql`
-  query GetUser {
-  user(login: "abernix") {
+  query GetUser($username: String!) {
+  user(login: $username) {
     login
     name
     avatarUrl
@@ -39,9 +40,13 @@ const QUERY = gql`
   }
 `;
 
-const Disp = () => {
+const Disp = ({username}) => {
 
-  const { data,loading, error } = useQuery(QUERY);
+  // const { data,loading, error } = useQuery();
+
+  const { loading, error, data } = useQuery(QUERY, {
+    variables: { username },
+  });
 
     if (loading) {
       return ("....");
@@ -87,11 +92,6 @@ const Disp = () => {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="commit-history mb-4">
-          <h2 className="text-2xl mb-2">Commit History</h2>
-          {/* Add your commit history component or content here */}
         </div>
 
         <div className="heatmaps-or-graphs">
