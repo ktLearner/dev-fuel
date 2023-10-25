@@ -1,7 +1,6 @@
-import { useQuery } from "@apollo/client";
-import { gql } from "@apollo/client";
-import { interpolateGreens } from 'd3-scale-chromatic';
+import { useQuery, gql } from "@apollo/client";
 
+import { interpolateGreens } from 'd3-scale-chromatic';
 
 const QUERY = gql`
   query GetUser($username: String!) {
@@ -40,17 +39,15 @@ const QUERY = gql`
   }
 `;
 
-const Disp = ({username}) => {
-
-  // const { data,loading, error } = useQuery();
+const Disp = ({ username }) => {
 
   const { loading, error, data } = useQuery(QUERY, {
     variables: { username },
   });
 
-    if (loading) {
-      return ("....");
-    }
+  if (loading) {
+    return ("....");
+  }
 
   if (error) {
     console.error(error);
@@ -67,7 +64,8 @@ const Disp = ({username}) => {
     };
 
     return (
-      <div className="github-stats bg-white rounded-lg shadow-md p-4">
+
+      <div className="bg-gray-100 p-4 rounded-lg shadow-md  rounded-lg shadow-md p-4">
         <div className="user-details mb-4">
           <h2 className="text-2xl mb-2">User Details</h2>
           <div className="header text-center mb-4">
@@ -96,7 +94,6 @@ const Disp = ({username}) => {
 
         <div className="heatmaps-or-graphs">
           <h2 className="text-2xl mb-2">Heatmaps or Graphs</h2>
-          {/* Add your heatmaps or graphs component or content here */}
           <div className="heatmap">
             <h2>GitHub Contribution Heatmap</h2>
             <div className="heatmap-container">
@@ -119,32 +116,6 @@ const Disp = ({username}) => {
       </div>
     );
   };
-}
-
-function ContributionHeatmap() {
-  // ...
-  const contributionData = data.user.contributionsCollection.contributionCalendar;
-
-  return (
-    <div className="heatmap">
-      <h2>GitHub Contribution Heatmap</h2>
-      <div className="heatmap-container">
-        {contributionData.weeks.map((week, weekIndex) => (
-          <div className="heatmap-week" key={weekIndex}>
-            {week.contributionDays.map((day, dayIndex) => (
-              <div
-                className={`heatmap-day ${day.contributionCount === 0 ? 'inactive' : ''
-                  }`}
-                key={dayIndex}
-              >
-                {day.contributionCount}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 }
 
 
