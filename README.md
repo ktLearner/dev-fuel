@@ -1,6 +1,10 @@
 # Dev Fuel
 Initially idea was to make it a crowd funding platform for open source project by integrating github graphql api and blockchain based payment system but could not complete (just justifying the name)
 
+## video
+https://drive.google.com/drive/folders/1ABGX6hcSdmAINMsArVaua80xyBCiEj8Z?usp=sharing
+
+## overview
 - Tried using next-js instead of just react due to server side rendering / seo optimisation ..... and yeah file based routes is much easier
 - Graphql is definatey nice as we dont serve extra or less on the plate
 - I am not very good with front end and dint give enough time to make it asthetic but kind just brutally does the representation part
