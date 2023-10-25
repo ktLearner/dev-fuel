@@ -10,7 +10,6 @@ Initially idea was to make it a crowd funding platform for open source project b
 
 ## Getting Started
 
-
 ### Run Locally  
 Clone the project  
 
